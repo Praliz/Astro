@@ -10,6 +10,7 @@ from logger import log_event
 from shot import Shot
 
 
+
 def main():
     pygame.init()
     screen = pygame.display.set_mode((SCREEN_WIDTH,SCREEN_HEIGHT))
@@ -39,7 +40,7 @@ def main():
                if(shot.collides_with(space_rock)):
                    log_event("asteroid_shot")
                    shot.kill()
-                   space_rock.kill()
+                   space_rock.split()
            if(player.collides_with(space_rock)):
                log_event("player_hit")
                print("Game over!")
