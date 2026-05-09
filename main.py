@@ -35,6 +35,11 @@ def main():
        screen.fill("black")
        updatable.update(dt)
        for space_rock in asteroids:
+           for shot in shots:
+               if(shot.collides_with(space_rock)):
+                   log_event("asteroid_shot")
+                   shot.kill()
+                   space_rock.kill()
            if(player.collides_with(space_rock)):
                log_event("player_hit")
                print("Game over!")
@@ -43,7 +48,7 @@ def main():
            drawing.draw(screen)
        pygame.display.flip()
        dt = clock.tick(60)/1000 
-      
+       
 
 if __name__ == "__main__":
     main()
